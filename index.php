@@ -12,7 +12,7 @@
 </head>
 <body onload="document.form1.email.focus()" >
     <header>
-        <h1>Contact List</h1>
+        <h1 class>Contact List</h1>
     </header>
     <section class="first-section ">
         <div class="container ">
@@ -56,15 +56,15 @@
     </div>
     </section>
     <section class="second-section ">
-        <form action="add_data.php " method="POST" name="form1" >
+        <form action="add_data.php " method="POST" name="form1" onsubmit="return validateEmail(document.form1.email)">
             <label for="Name">Name:</label>
-            <input type="text " name="name" id="name" class="mb-3" required>
+            <input type="text " name="name" id="name" class="mb-3" >
             <label for="Conatact No.">Contact No.:</label>
             <input type="number " name="phone" id="phone" class="mb-3" required>
             <label for="E-mail">E-mail:</label>
             <input type="text" name="email" id="email" class="mb-4" required>
 
-            <input type="submit" value="Save" class="submit" onclick=" validateEmail(document.form1.email)">
+            <input type="submit" value="Save" class="submit" name="add_data">
     
         </form>
 

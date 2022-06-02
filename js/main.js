@@ -1,30 +1,30 @@
-function returnToPreviousPage(){
-    window.history.back();
+function returnToPreviousPage(e) {
     e.preventDefault();
+
+
+}
+
+const validateAllEmail = (email) => {
+    return String(email)
+        .toLowerCase()
+        .match(
+            /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        );
+
 }
 
 
+function validateEmail(inputText) {
+    if( !validateAllEmail(inputText.value)) {
+        alert("You have entered an invalid email address!");
+        return false;
+    }
 
-function validateEmail(inputText)
-
-{
-var mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-if(inputText.value!== mailFormat)
-{
-    alert("You have entered an invalid email address!");
-
-    returnToPreviousPage();
-
-    return false;
-}
-else{
-
-alert("validation pass");
-document.form1.email
-return true;
+    return true;
 
 }
-}
+
+
 
 
 
