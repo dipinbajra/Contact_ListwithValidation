@@ -60,3 +60,19 @@ header h1{
     color: #FFF;
     
 }
+
+.message-invalid {
+    color: #ff0000;
+    background-color: #f0f8ff;
+    text-align: center;
+}
+.second-section form .message-invalid{
+  
+    background-color:#ffebcd ;
+    
+}
+
+.second-section form .submission-success{
+    color :#008000;
+    text-align: center;
+}
