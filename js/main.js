@@ -34,9 +34,36 @@
 //   }
 // });
 
-// $(document).ready(function () {
-//     $("#form1").validate();
-//   });
+// const validatePhoneNumber=(phone)=>{
+//   return Number(phone)
+//   .match( /^\d{10}$/);
+// }
+
+
+// function phonenumber(inputText)
+// {
+  
+//   if(!validatePhoneNumber(inputText.value))
+//   {
+//     alert("Number must be of 10 digits");
+//     return false;
+//     }
+  
+       
+//       else
+//       {
+//         return true;
+//           }
+       
+        
+// }
+
+
+
+
+$(document).ready(function () {
+    $("#form1").validate();
+  });
 
 
 

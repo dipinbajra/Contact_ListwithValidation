@@ -13,7 +13,7 @@
   
     <title>Contact Book</title>
 </head>
-<body  >
+<body >
     <header>
         <h1 class>Contact List</h1>
     </header>   
@@ -27,6 +27,7 @@
                 <th>Name</th>
                 <th>Contact No.</th>
                 <th>E-mail</th>
+                <th>Website</th>
                 <th>Actions</th>
             </tr>
             <?php
@@ -42,11 +43,13 @@
                     $name=$row['name'];
                     $phone=$row['phone'];
                     $email=$row['email'];
+                    $website=$row['website'];
             ?>
                     <tr>
                         <td><?php echo $name ?></td>
                         <td><?php echo $phone ?></td>
                         <td><?php echo $email ?></td>
+                        <td><?php echo $website?></td>
 
                         <td><a href="delete.php?id=<?php echo $id?>">Delete</a></td>
             
@@ -62,48 +65,51 @@
         </div>
     </section>
     <section class="second-section ">
-        <form action="add_data.php " method="POST" name="form1"  >
+        <form action="add_data.php " method="POST" name="form1" id="form1"   >
             </div>  
-                <div class="submission-success">
+                <!-- <div class="submission-success">
                     <?php
-                        if( isset( $_GET['submission_status'] ) && $_GET[ 'submission_status']==true )
-                            echo "Submission Successful !"
+                        // if( isset( $_GET['submission_status'] ) && $_GET[ 'submission_status']==true )
+                        //     echo "Submission Successful !"
                     ?>  
-                </div>
+                </div> -->
             
             <label for="Name">Name:</label>
-            <input type="text " name="name" id="name" class="mb-2"   >
-            <div class="message-invalid mb-3">
-                    <?php
-                        if( isset( $_GET['name_status']) && $_GET[ 'name_status' ]== 'invalid' ){
-                            echo( "Please enter a Name" );
+            <input type="text " name="name" id="name" class="mb-3" required   >
+            <!-- <div class="message-invalid mb-3">
+                    <?php 
+                    //    // if( isset( $_GET['name_status']) && $_GET[ 'name_status' ]== 'invalid' ){
+                    //         echo( "Please enter a Name" );
 
-                        }
-                        else if(isset( $_GET['name_status']) && $_GET['name_status']== 'Only letters and white space allowed' ){
-                            echo ( "Only letters and white space allowed" );
-                        }
+                    //     }
+                    //     else if(isset( $_GET['name_status']) && $_GET['name_status']== 'Only letters and white space allowed' ){
+                    //         echo ( "Only letters and white space allowed" );
+                    //     }
                     ?>
-            </div>
+            </div> -->
             
             <label for="Conatact No.">Contact No.:</label>
-            <input type="number " name="phone" id="phone" class="mb-2"  required>
-            <div class="message-invalid mb-3">
+            <input type="number " name="phone" id="phone" class="mb-3"  required>
+            <!-- <div class="message-invalid mb-3">
                     <?php
-                        if( isset( $_GET[ 'phone_status' ]) && $_GET[ 'phone_status' ]== 'invalid'){
-                            echo( "Number must be of 10 digits" ) ;    
-                        }
+                        // if( isset( $_GET[ 'phone_status' ]) && $_GET[ 'phone_status' ]== 'invalid'){
+                        //     echo( "Number must be of 10 digits" ) ;    
+                        // }
                     ?>
-            </div>
+            </div> -->
 
             <label for="E-mail">E-mail:</label>
-            <input type="email" name="email" id="email" class="mb-2"   required>
-            <div class="message-invalid mb-4">
+            <input type="email" name="email" id="email" class="mb-3"   required>
+            <!-- <div class="message-invalid mb-4">
                 <?php
-                    if( isset( $_GET[ 'email_status' ] ) && $_GET[ 'email_status' ]== 'invalid' ){
-                        echo("Invalid E-mail. Please enter valid E-mail address.");
-                        }        
+                    // if( isset( $_GET[ 'email_status' ] ) && $_GET[ 'email_status' ]== 'invalid' ){
+                    //     echo("Invalid E-mail. Please enter valid E-mail address.");
+                    //     }        
                 ?>
-            </div>
+            </div> -->
+
+            <label for="Website-url">Website:</label>
+            <input type="url" name="website" id="website" class="mb-4" >
 
             <input type="submit" value="Save" class="submit" name="add_data">
     
