@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
-    <script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script> -->
     <script src="js/main.js"></script>  
   
     <title>Contact Book</title>
@@ -14,17 +16,11 @@
 <body  >
     <header>
         <h1 class>Contact List</h1>
-    </header>
+    </header>   
+   
+    <section class="first-section ">
 
-    <div class="message-invalid">
-        <?php 
-            if( isset( $_GET['email_status'] ) && $_GET['email_status'] == 'invalid') {
-                echo "Email is invalid!";
-            }
-        ?> 
-    </div>
 
-     <section class="first-section ">
         <div class="container ">
             <Table >
             <tr>
@@ -66,28 +62,48 @@
         </div>
     </section>
     <section class="second-section ">
-        <form action="add_data.php " method="POST" name="form1" >
-
-            <div class="message-invalid">         
-                <?php 
-                    if( isset( $_GET['name_status'] ) && $_GET['name_status']== 'invalid' ){
-                        echo "Please enter name";
-                    }
-                ?>
+        <form action="add_data.php " method="POST" name="form1"  >
             </div>  
-            <div class="submission-success">
-                <?php
-                    if( isset( $_GET['submission_status'] ) && $_GET[ 'submission_status']==true )
-                        echo "Submission Successful !"
-                ?>
-            </div> 
+                <div class="submission-success">
+                    <?php
+                        if( isset( $_GET['submission_status'] ) && $_GET[ 'submission_status']==true )
+                            echo "Submission Successful !"
+                    ?>  
+                </div>
+            
             <label for="Name">Name:</label>
-            <input type="text " name="name" id="name" class="mb-3" >
+            <input type="text " name="name" id="name" class="mb-2"   >
+            <div class="message-invalid mb-3">
+                    <?php
+                        if( isset( $_GET['name_status']) && $_GET[ 'name_status' ]== 'invalid' ){
+                            echo( "Please enter a Name" );
+
+                        }
+                        else if(isset( $_GET['name_status']) && $_GET['name_status']== 'Only letters and white space allowed' ){
+                            echo ( "Only letters and white space allowed" );
+                        }
+                    ?>
+            </div>
             
             <label for="Conatact No.">Contact No.:</label>
-            <input type="number " name="phone" id="phone" class="mb-3" required>
+            <input type="number " name="phone" id="phone" class="mb-2"  required>
+            <div class="message-invalid mb-3">
+                    <?php
+                        if( isset( $_GET[ 'phone_status' ]) && $_GET[ 'phone_status' ]== 'invalid'){
+                            echo( "Number must be of 10 digits" ) ;    
+                        }
+                    ?>
+            </div>
+
             <label for="E-mail">E-mail:</label>
-            <input type="text" name="email" id="email" class="mb-4" required>
+            <input type="email" name="email" id="email" class="mb-2"   required>
+            <div class="message-invalid mb-4">
+                <?php
+                    if( isset( $_GET[ 'email_status' ] ) && $_GET[ 'email_status' ]== 'invalid' ){
+                        echo("Invalid E-mail. Please enter valid E-mail address.");
+                        }        
+                ?>
+            </div>
 
             <input type="submit" value="Save" class="submit" name="add_data">
     
