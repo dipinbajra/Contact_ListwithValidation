@@ -42,28 +42,65 @@
 
 // function phonenumber(inputText)
 // {
-  
+
 //   if(!validatePhoneNumber(inputText.value))
 //   {
 //     alert("Number must be of 10 digits");
 //     return false;
 //     }
-  
-       
+
+
 //       else
 //       {
 //         return true;
 //           }
-       
-        
+
+
 // }
 
 
 
 
 $(document).ready(function () {
-    $("#form1").validate();
+  $("#form1").validate({
+    rules: {
+      name: {
+        required: true,
+        minlength: 3
+
+      },
+
+
+
+      email: {
+        required: true,
+        email: true,
+
+
+      },
+
+      phone: {
+        required: true,
+        maxlength: 10,
+        minlength: 10,
+        number: true,
+
+      },
+
+
+
+    },
+    messages: {
+
+      name: {
+        required: "Please enter your name!"
+      }
+
+
+    }
   });
+});
+
 
 
 

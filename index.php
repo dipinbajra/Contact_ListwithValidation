@@ -44,6 +44,7 @@
                     $phone=$row['phone'];
                     $email=$row['email'];
                     $website=$row['website'];
+                   
             ?>
                     <tr>
                         <td><?php echo $name ?></td>
@@ -67,6 +68,13 @@
     <section class="second-section ">
         <form action="add_data.php " method="POST" name="form1" id="form1"   >
             </div>  
+                <?php
+                  
+
+                    if( isset($_GET['name_occurance'])&& $_GET['name_occurance']==true){
+                        echo("The name is already taken!");
+                    }
+                ?>
                 <!-- <div class="submission-success">
                     <?php
                         // if( isset( $_GET['submission_status'] ) && $_GET[ 'submission_status']==true )
@@ -75,7 +83,7 @@
                 </div> -->
             
             <label for="Name">Name:</label>
-            <input type="text " name="name" id="name" class="mb-3" required   >
+            <input type="text " name="name" id="name" class="mb-3"   >
             <!-- <div class="message-invalid mb-3">
                     <?php 
                     //    // if( isset( $_GET['name_status']) && $_GET[ 'name_status' ]== 'invalid' ){
@@ -89,7 +97,7 @@
             </div> -->
             
             <label for="Conatact No.">Contact No.:</label>
-            <input type="number " name="phone" id="phone" class="mb-3"  required>
+            <input type="number " name="phone" id="phone" class="mb-3"  >
             <!-- <div class="message-invalid mb-3">
                     <?php
                         // if( isset( $_GET[ 'phone_status' ]) && $_GET[ 'phone_status' ]== 'invalid'){
@@ -99,7 +107,12 @@
             </div> -->
 
             <label for="E-mail">E-mail:</label>
-            <input type="email" name="email" id="email" class="mb-3"   required>
+            <input type="email" name="email" id="email" class="mb-3"   >
+            <?php
+              if( isset($_GET['email_occurance'])&& $_GET['email_occurance']==true){
+                echo("The email is already taken!");
+            }
+            ?>
             <!-- <div class="message-invalid mb-4">
                 <?php
                     // if( isset( $_GET[ 'email_status' ] ) && $_GET[ 'email_status' ]== 'invalid' ){
